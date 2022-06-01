@@ -19,7 +19,8 @@ from django.views.generic import TemplateView
 from base.views import home
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls')),
+    path('panel/manager/',admin.site.urls),
     path('',TemplateView.as_view(template_name='index.html'),name='home'),
     path('dashboard/',home, name='dashboard'),
     path('accounts/', include('allauth.urls'))
